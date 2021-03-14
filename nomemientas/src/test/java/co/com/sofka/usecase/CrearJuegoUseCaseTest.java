@@ -1,7 +1,10 @@
 package co.com.sofka.usecase;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 class CrearJuegoUseCaseTest {
+    @Test
+    void crearJuego(){
 
+    }
 }

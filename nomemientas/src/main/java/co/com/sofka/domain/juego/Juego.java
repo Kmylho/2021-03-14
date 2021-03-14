@@ -2,7 +2,9 @@ package co.com.sofka.domain.juego;
 
 import co.com.sofka.domain.factory.JugadorFactory;
 import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.domain.juego.event.JuegoCreado;
+import co.com.sofka.domain.juego.event.JuegoInicializado;
 import co.com.sofka.domain.juego.event.JugadorAdicionado;
 import co.com.sofka.domain.juego.values.Dinero;
 import co.com.sofka.domain.juego.values.JuegoId;
@@ -10,6 +12,7 @@ import co.com.sofka.domain.juego.values.JugadorId;
 import co.com.sofka.domain.juego.values.JugadorNombre;
 import co.com.sofka.domain.ronda.values.RondaId;
 
+import java.util.List;
 import java.util.Map;
 import java.util.function.BiFunction;
 
@@ -24,11 +27,32 @@ public class Juego extends AggregateEvent<JuegoId> {
         jugadorFactory.jugadores()
                 .forEach(jugador -> adicionarJugador(jugador.identity(), jugador.jugadorNombre(), jugador.dinero()));
     }
-    //Añade jugadores
+
+    private Juego(JuegoId entityId) {
+        super(entityId);
+        subscribe(new JuegoChange(this));
+    }
+
+    public static Juego from(JuegoId entityId, List<DomainEvent> events) {
+        var juego = new Juego(entityId);
+        events.forEach(juego::applyEvent);
+        return juego;
+    }
+
     public void adicionarJugador(JugadorId jugadorId, JugadorNombre jugadorNombre, Dinero dinero) {
         appendChange(new JugadorAdicionado(jugadorId, jugadorNombre, dinero)).apply();
     }
+    // Iniciar el juego
+    public void iniciarJuego() {
+        var jugadoresIds = jugadores.keySet();
+        appendChange(new JuegoInicializado(jugadoresIds)).apply();
+    }
 
-    private BiFunction<Object, Object, Object> appendChange(JugadorAdicionado jugadorAdicionado) {
+    public RondaId rondaId() {
+        return rondaId;
+    }
+
+    public Boolean isJegoInicializado() {
+        return juegoInicializado;
     }
 }
