@@ -16,11 +16,11 @@ public class CrearJuego implements Command {
         this.jugadorNombres = jugadorNombres;
     }
 
-    public Map<JugadorId, Dinero> getCapitales() {
-        return capitales;
+    public Map<JugadorId, Dinero> getDineros() {
+        return dineros;
     }
 
-    public Map<JugadorId, Nombre> getNombres() {
-        return nombres;
+    public Map<JugadorId, JugadorNombre> getJugadorNombres() {
+        return jugadorNombres;
     }
 }
