@@ -16,7 +16,7 @@ public class Jugador extends Entity<JugadorId> {
         this.dinero = dinero;
     }
 
-    public void aumentarCapital(Integer valor) {
+    public void aumentarDinero(Integer valor) {
         this.dinero = this.dinero.aumentar(valor);
     }
 

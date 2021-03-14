@@ -14,7 +14,6 @@ import co.com.sofka.domain.ronda.values.RondaId;
 
 import java.util.List;
 import java.util.Map;
-import java.util.function.BiFunction;
 
 public class Juego extends AggregateEvent<JuegoId> {
     protected Map<JugadorId, Jugador> jugadores;
@@ -52,7 +51,7 @@ public class Juego extends AggregateEvent<JuegoId> {
         return rondaId;
     }
 
-    public Boolean isJegoInicializado() {
-        return juegoInicializado;
+    public Boolean isJuegoInicializado() {
+        return jugando;
     }
 }

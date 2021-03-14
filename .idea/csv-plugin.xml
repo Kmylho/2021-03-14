@@ -10,6 +10,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\nomemientas\src\main\java\co\com\sofka\domain\juego\Jugador.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\nomemientas\src\main\java\co\com\sofka\domain\juego\comand\CrearJuego.java">
           <value>
             <Attribute>
