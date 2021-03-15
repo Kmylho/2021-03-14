@@ -14,7 +14,7 @@ public class JuegoInicializado extends DomainEvent {
         this.jugadoresIds = jugadoresIds;
     }
 
-    public Set<JugadorId> getJugadoresIds() {
+    public static Set<JugadorId> getJugadoresIds() {
         return jugadoresIds;
     }
 }

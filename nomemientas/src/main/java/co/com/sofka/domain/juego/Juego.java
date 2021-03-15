@@ -37,7 +37,7 @@ public class Juego extends AggregateEvent<JuegoId> {
         events.forEach(juego::applyEvent);
         return juego;
     }
-
+    // Agrega los jugadores
     public void adicionarJugador(JugadorId jugadorId, JugadorNombre jugadorNombre, Dinero dinero) {
         appendChange(new JugadorAdicionado(jugadorId, jugadorNombre, dinero)).apply();
     }

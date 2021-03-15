@@ -24,7 +24,28 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\nomemientas\src\main\java\co\com\sofka\domain\juego\comand\InicializarJuego.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\nomemientas\src\main\java\co\com\sofka\usecase\CrearJuegoUseCase.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\nomemientas\src\test\java\co\com\sofka\usecase\CrearJuegoUseCaseTest.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\nomemientas\src\test\java\co\com\sofka\usecase\InicializarJuegoCaseTest.java">
           <value>
             <Attribute>
               <option name="separator" value=";" />

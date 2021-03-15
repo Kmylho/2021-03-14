@@ -9,20 +9,24 @@ import java.util.HashMap;
 
 public class JuegoChange extends EventChange {
     public JuegoChange(Juego juego) {
-
+        //para crear el juego
         apply((JuegoCreado event) -> {
+            //el juego esta creado pero no inicializado
             juego.jugando = Boolean.FALSE;
             juego.jugadores = new HashMap<>();
         });
-
+        //para inicializar el juego
         apply((JuegoInicializado event) -> {
+            //el juego ya esta inicializado
             juego.jugando = Boolean.TRUE;
         });
-
+        // adiciona los jugadores despues de iniciar el juego
         apply((JugadorAdicionado event) -> {
+            // verifica que el juego no haya comenzado
             if (juego.jugando.equals(Boolean.TRUE)) {
-                throw new IllegalArgumentException("No se puede crear un nuevo jugador si el juego esta en marcha");
+                throw new IllegalArgumentException("Juego ya inicializado");
             }
+
             juego.jugadores.put(event.getJugadorId(),
                     new Jugador(
                             event.getJugadorId(),
